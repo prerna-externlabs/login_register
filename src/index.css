@@ -1,0 +1,54 @@
+*{
+
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    background-color: gainsboro;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* .heading{
+    color: blue;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+
+} */
+
+div{
+    width: 100%;
+    height : 100vh;
+    background-color:gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color: white;
+    background: transparent;
+    text-shadow: 0 2px 2px black;
+}
+input{
+    width: 50%;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    margin: 20px 0;
+    text-align: center;
+}
+
+button{
+    padding: 5px 8px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: cadetblue;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
