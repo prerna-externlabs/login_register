@@ -3,17 +3,26 @@ import "../register/register.css"
 
 const Register  = (props) =>{
 
-  const [name,setName] = useState('');
-  const [email,setEmail] = useState('');
-  const [phone,setPhone] = useState('');
-  const [password,setPassword] = useState('');
-  const [confpass,setConfPass] = useState('');
 
 
+  const [fromdata,setFormdata] = useState({
+    name:"",
+    email:"",
+    password : "",
+    phone : "",
+    confpass : ""
+  })
+  const handlesubmit = (e) => {
+    const { name, value } = e.target;
+    setFormdata(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  }
 
   const submits = (e) =>{
     e.preventDefault();
-    console.log(email);
+    console.log(fromdata);
 
   }
     return(
@@ -22,19 +31,19 @@ const Register  = (props) =>{
 
         <form className='register-form' onSubmit={submits}>
           <label for='name'>Name</label>
-          <input type="text" placeholder='enter your name' id='name' name='name' value={name} onChange={(e)=>setName(e.target.value)}/>
+          <input type="text" placeholder='enter your name' id='name' name='name' value={fromdata.name} onChange={handlesubmit}/>
           <label for='email'>Email</label>
-          <input type="text" placeholder='youremail@email.com' id='email' name='email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+          <input type="text" placeholder='youremail@email.com' id='email' name='email' value={fromdata.email} onChange={handlesubmit}/>
           <label for='phone'>Phone NO.</label>
-          <input type="number" placeholder='enter your phone no.' id='phone' name='phone' value={phone} onChange={(e)=>setPhone(e.target.value)}/>
+          <input type="number" placeholder='enter your phone no.' id='phone' name='phone' value={fromdata.phone} onChange={handlesubmit}/>
           <label for='password'>Password</label>
-          <input type="password" placeholder='enter your password' id='password' name='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+          <input type="password" placeholder='enter your password' id='password' name='password' value={fromdata.password} onChange={handlesubmit}/>
           <label for='password'>Confirm Password</label>
-          <input type="password" placeholder='enter your confirm password' id='confpass' name='confpass' value={confpass} onChange= {(e)=>setConfPass(e.target.value)}/>
+          <input type="password" placeholder='enter your confirm password' id='confpass' name='confpass' value={fromdata.confpass} onChange= {handlesubmit}/>
           <button type='submit'>Register Now </button>
         </form>
         <button className='link-button' onClick={() => props.onFormSwitch('login')}>Already have an account? <span>login</span> now</button>
-        {/* <button className='link-button' onClick={() => props.onFormSwitch('login')}>Already have an account? login now</button> */}
+       
         </div>
     );
 }
